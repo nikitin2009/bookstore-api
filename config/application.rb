@@ -30,13 +30,7 @@ module BookstoreApi
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    # Fix CORS errors
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-         origins '*'
-         resource '*', :headers => :any, :methods => [:get, :post, :options]
-       end
-    end
-
+    config.api_only = true
+    config.debug_exception_response_format = :default
   end
 end
